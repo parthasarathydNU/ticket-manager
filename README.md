@@ -1,8 +1,10 @@
-INFO6150 – FALL2022 – FINAL PROJECT
-HAIL MARY
-@Aravind Dasarathy | @Divya Shree | @Geetha Parthasarathy | @Dhruv Parthasarathy
+##INFO6150 – FALL2022 – FINAL PROJECT
 
-GitHub: https://github.com/neu-mis-info6150-fall-2022/final-project-final-project-hail_mary
+#HAIL MARY
+
+###@Aravind Dasarathy | @Divya Shree | @Geetha Parthasarathy | @Dhruv Parthasarathy
+
+##GitHub: https://github.com/neu-mis-info6150-fall-2022/final-project-final-project-hail_mary
 
 
 About:
@@ -21,7 +23,7 @@ The basic entities that govern our application are:
 
 Entity Relationship diagram: 
 
-![ERDiagram](/images/ERDiagram.png "ERDiagram") 
+![ERDiagram](/images/ER-Diagram.png "ERDiagram") 
 
 
 
@@ -36,7 +38,7 @@ All analytical data that we will be generating as an aggregate of entity paramet
 
 Use Case Diagram:
 
-![UseCaseDiagram](/images/UseCaseDiagram.png "UseCaseDiagram") 
+![UseCaseDiagram](/images/Use-CaseDiagram.png "UseCaseDiagram") 
 
 
 
