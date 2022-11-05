@@ -1,0 +1,8 @@
+Meeting on 5th Nov 2:00 PM
+
+These are the tasks that we have agreed upon to be completed by the next 3 days ( including today ) (6th - 9th Nov)
+
+Aravind : Create Schema and Backend Boiler Code Structure for API Layer ( Server folder in the repo )
+Divya: Customer Page and creation of ticket UI and Backend Part ( front end folder in the repo )
+Geetha: Wireframe , Mock data ,  Basic UI Login (Front end folder in the repo)
+Dhruv : Dashboard and UI Routing (Front end folder in the repo)
