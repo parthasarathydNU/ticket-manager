@@ -1,3 +1,17 @@
+/**
+ * Signup component.
+ * Author: Divya Shree
+ * Date: 08/12/2022
+ *
+ * @module components/auth
+ * @requires react
+ * @requires react-redux
+ * @requires next
+ * @requires next/router
+ * @requires next/Image
+ * @requires store/slice/appSlice
+ */
+
 import styles from "./_signup.module.scss";
 import React, {useEffect} from "react";
 import { useDispatch } from "react-redux";
@@ -5,6 +19,7 @@ import Signupform from "./Signupform";
 import { setCurrentView } from "../../store/slice/appSlice";
 import signUpAnimation from '../../assets/loginPageGIF.gif'
 import Image from "next/image";
+
 function Signup() {
 
     const dispatch = useDispatch();

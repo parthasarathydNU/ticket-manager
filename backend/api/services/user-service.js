@@ -43,6 +43,5 @@ export const findByEmail = (email_id) => {
 * @returns the user resource that was updated
 */
 export const updatepassword = (user, options) => {
-  console.log("Uesr to be updated", user)
   return User.findByIdAndUpdate(user.id, user, options).exec();
 }

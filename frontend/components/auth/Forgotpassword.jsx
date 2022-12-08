@@ -1,3 +1,18 @@
+/**
+ * Forgot Password component.
+ * Author: Divya Shree
+ * Date: 08/12/2022
+ *
+ * @module components/auth
+ * @requires react
+ * @requires react-redux
+ * @requires @mui/material
+ * @requires next
+ * @requires next/router
+ * @requires next/Image
+ * @requires store/slice/appSlice
+ */
+
 import styles from "./_signup.module.scss";
 import styles1 from "./_signupform.module.scss"
 import React, {useEffect} from "react";
@@ -28,7 +43,6 @@ const Forgotpassword = () => {
     }
 
     const handlePasswordChange = (event) => {
-        console.log("Came to handle password function");
         event.preventDefault();
         updateUserPassword(event.target[0].value, event.target[1].value);    
     }
@@ -58,7 +72,6 @@ const Forgotpassword = () => {
                     alert(userJson['error']);
                 }
                 else {
-                    console.log(userJson);
                     dispatch(setUserDetails(userJson));
                     await new Promise(r => setTimeout(r,1000));
                     router.push('/login');

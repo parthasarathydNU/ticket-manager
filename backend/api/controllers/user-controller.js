@@ -163,14 +163,12 @@ export const auth = async(req, res) => {
 
 export const put = async(req, res) => {
   try {
-    console.log("Data received at backend", req.body)
     const user = await userService.findByEmail(req.body.email);
     if(user === null) {
       return setError({ error: 'Email not registered' }, res, statusCodes.BAD_REQUEST)
     }
     user.password = req.body.password;
     const updatepassword = await userService.updatepassword(user, { new: true });
-    console.log(updatepassword);
     setResponse(updatepassword, res);
 
   } catch (error) {

@@ -1,3 +1,17 @@
+/**
+ * Login form component.
+ * Author: Divya Shree
+ * Date: 08/12/2022
+ *
+ * @module components/auth
+ * @requires react
+ * @requires react-redux
+ * @requires @mui/material
+ * @requires next
+ * @requires next/router
+ * @requires store/slice/appSlice
+ */
+
 import styles from "./_signupform.module.scss"
 import React from "react";
 import { useDispatch } from "react-redux";

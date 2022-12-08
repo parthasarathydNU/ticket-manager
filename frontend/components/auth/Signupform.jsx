@@ -1,3 +1,13 @@
+/**
+ * Signup component.
+ * Author: Divya Shree
+ * Date: 08/12/2022
+ *
+ * @module components/auth
+ * @requires react
+ * @requires @mui/material
+ */
+
 import styles from "./_signupform.module.scss";
 import React from "react";
 import { Button } from "@mui/material";
