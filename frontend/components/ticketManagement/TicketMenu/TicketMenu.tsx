@@ -3,20 +3,17 @@
 
 // import { Table } from '@mui/material';
 import * as React from 'react';
-import { DataGrid, GridRowsProp, GridColDef, MuiEvent, GridRowParams, getGridStringOperators, GridFilterItem, GridRenderCellParams } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridRenderCellParams } from '@mui/x-data-grid';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { useEffect, useState } from 'react';
-import { fetchRows, selectTicket, deleteTicketFromMenu } from '../../../store/slice/ticketManagementSlice';
-import { useRouter } from 'next/router'
+import {useState } from 'react';
+import {  selectTicket, deleteTicketFromMenu } from '../../../store/slice/ticketManagementSlice';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle, IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
 import RemoveRedEyeIcon from '@mui/icons-material/RemoveRedEye';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
     root: {
-        // backgroundColor: theme.palette.secondary.main,
         '& h2': {
             backgroundColor: '#12344d',
             color: 'white'
@@ -30,6 +27,10 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function TicketMenu() {
+
+    /**
+     * Ticket Menu will manage Table to show all Ticket Data and able to edit/update Ticket Data
+     */    
     const stateRows: any = {}
     const [openDialog, setDialog] = useState({ state: false, stateRows });
     const dispatch: any = useDispatch();
@@ -79,16 +80,12 @@ export default function TicketMenu() {
         state.ticketManagement.filterState
     ], shallowEqual);
 
+    // edit Ticket
     const rowClicked = (gridParams: any) => {
-        // event.preventDefault();
         dispatch(selectTicket(gridParams.row.id));
-        // router.push({
-        //     pathname: `/ticket-management/ticket/[id]`,
-        //     query: { id: gridParams.row.id },
-        //   })
-        // router.push({query: {page: 1}}, undefined, { shallow: true });
     }
 
+    //delete Ticket
     const deleteTicket = (gridParams: any) => {
         dispatch(deleteTicketFromMenu({ id: gridParams.row.id }));
         setDialog({ state: false, stateRows: {} });
@@ -136,7 +133,7 @@ export default function TicketMenu() {
                 </div>
 
             </div>
-
+            {/* Alert To Delete data from table */}
             <Dialog
                 open={openDialog.state}
                 onClose={() => setDialog({ state: false, stateRows: {} })}

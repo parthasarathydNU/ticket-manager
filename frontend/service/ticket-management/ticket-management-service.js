@@ -1,21 +1,26 @@
 const url = 'http://localhost:8080/';
 import DeleteIcon from '@mui/icons-material/Delete';
-import { GridColDef} from '@mui/x-data-grid';
 import { IconButton } from '@mui/material';
 
+/**
+ * This Service file will provide common services like 
+ * - Hardcoded Default Vlues
+ * - Fetch api's for get All User , Get all tickets , Update/Delete Ticket
+ * - common Functionality like Row Filtering and Sort Functionalities 
+ */
 
 //Default Predefined Values //
 const priority = ['Urgent', 'High', 'Medium', 'Low'];
 const status = ['Open', 'Closed', 'In Progress', 'Resolved'];
 const state = ['Due', 'Overdue'];
-const agent = ['Unassigned', 'agent 1', 'agent 2'] // fetch from api
-const contact = ['user 1 ', 'user 2'] // fetch from user api
+
+//order to determine Filters
 const sortOrder =  {
    priority :  { Urgent : 1 ,High : 2, Medium : 3, Low : 4}, // order of priority
    status  : {Open : 4 , 'In Progress' : 3, Closed : 2, Resolved : 1} // order of status
 };
 
-
+// Common Style used for Autocomplete Complete
 const Autocomplete = {
     inputRoot: {
 
@@ -86,12 +91,12 @@ const staticColumns  = [
     } },
 ];
 
+// Get All Users
 export const getAllUserforTicket = async () =>  {
     return (await fetch(url + 'user')).json();
 }
 
-//Default Predefined Values //
-
+//Get all Tickets
 export const getAllTickets = async () => {
     return (await fetch(url + 'ticket')).json();
 }

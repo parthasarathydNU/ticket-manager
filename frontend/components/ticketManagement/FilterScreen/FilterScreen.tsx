@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import styles from './_filterScreen.module.scss';
 import { makeStyles } from '@material-ui/core/styles';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
-import { saveSelectedFilter, fetchRows, getAllUserDetails } from '../../../store/slice/ticketManagementSlice';
+import { saveSelectedFilter } from '../../../store/slice/ticketManagementSlice';
 import * as state from '../../../service/ticket-management/ticket-management-service';
 
 
@@ -12,9 +12,15 @@ const useStyles = makeStyles(() => (state.Autocomplete));
 
 function FilterScreen() {
 
+    /**
+     * Filter Screen will perform Column Customer Filter
+     * Combination of filters will be return ticket Data
+     * If Filters applied , a small red dot appears on top of the button  ,if filters are empty 
+     * the red dot will disappear
+     */
+
     const classes = useStyles();
     const dispatch: any = useDispatch();
-    let reset = false;
 
     let [dropDownValues, selectedFilters] = useSelector((state: any) => [
         { ...state.ticketManagement.dropDownValues },
@@ -23,12 +29,13 @@ function FilterScreen() {
 
     ], shallowEqual);
 
-
+// To set Dropdown Values
     const inputEvent = (type: any, value: any) => {
         selectedFilters[type] = value;
 
     }
 
+// Apply filters will filter in TIcket menu
     const submitChange = () => {
         // every items in the list will be check if there is empty then reset filter state
         let validateArray: any = [];
@@ -48,12 +55,6 @@ function FilterScreen() {
         }
 
     }
-
-    const resetFilters = () => {
-        selectedFilters = {...state.dropDownValues}
-        dispatch(saveSelectedFilter({ filters: state.dropDownValues, filterState: false }));
-    }
-
 
 
     return (

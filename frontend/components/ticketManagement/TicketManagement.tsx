@@ -2,12 +2,11 @@ import * as React from 'react';
 import { useEffect } from 'react';
 import styles from "./_ticketManagement.module.scss";
 import TicketMenu from './TicketMenu/TicketMenu';
-import Checkbox from '@mui/material/Checkbox';
 import Button from '@mui/material/Button';
 import KeyboardDoubleArrowRightIcon from '@mui/icons-material/KeyboardDoubleArrowRight';
 import Drawer from '@mui/material/Drawer';
 import { useDispatch, useSelector } from 'react-redux';
-import { openFilterDrawer, defaultFilterDropdown, commonSortFilters, unselectTicket, fetchRows, getAllUserDetails } from '../../store/slice/ticketManagementSlice';
+import { openFilterDrawer, commonSortFilters, unselectTicket, fetchRows } from '../../store/slice/ticketManagementSlice';
 import FilterScreen from './FilterScreen/FilterScreen';
 import * as state from '../../service/ticket-management/ticket-management-service';
 import { Autocomplete, IconButton, TextField } from '@mui/material';
@@ -21,15 +20,20 @@ const useStyles = makeStyles(() => (state.Autocomplete));
 
 function TicketManagement() {
 
+    /**
+     * This is entry point for Ticket Management 
+     * Ticket Management will have : 
+     * - Sort Functionality 
+     * - Filter Functionality
+     * - Update/Delete Ticket 
+     */
+
     const dispatch : any = useDispatch()
 
     useEffect(() => {
         dispatch(unselectTicket())
-        // dispatch(defaultFilterDropdown({}));
         dispatch(fetchRows());
         dispatch(setCurrentView("Ticket Management"));
-        // dispatch(getAllUserDetails());
-
     }, []);
 
     const [filterDrawerState, sortFilters, ticketSelected , filterState] = useSelector((state: any) => [
@@ -46,27 +50,28 @@ function TicketManagement() {
     const classes = useStyles();
 
 
+    // this will open Filter Drawer
     const handleDrawerOpen = () => {
         dispatch(openFilterDrawer({ filterDrawerOpen: filterDrawerState }));
     }
+
+     // this will close Filter Drawer
 
     const CloseFilterDrawer = () => {
         dispatch(openFilterDrawer({ filterDrawerOpen: true }));
     }
 
 
+    //Sort Functionalities
     const handleSortTable = (value: any) => {
-        // sortFilters['type'] = value;
-        // sortFilters['order'] = sortFilters['order'];
+       
         sort.type = value;
         setSort(sort)
         dispatch(commonSortFilters({sortFilters : sort}));
     }
 
     const handleSortOrder = (newValue: any) => {
-        // sortFilters['type'] = sortFilters['type'];
-        // sortFilters['order'] = value;
-        // sort.order = value;
+       
         sort = {
             type : sort.type,
             order : newValue
