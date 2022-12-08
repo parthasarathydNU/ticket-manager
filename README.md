@@ -13,6 +13,12 @@ GitHub : [github.com/neu-mis-info6150-fall-2022/final-project-final-project-hail
 
   * Hail Mary is a project that aims to provide convenient and frictionless customer-support domain. It consists of two parts - the customer’s side, where     a customer logs the complaint regarding issues governing a product, and the customer support’s side, where the (support) agent handles the issues           raised by the customer. The main aim is to provide a seamless experience between the customer and the company (customer support).  
   
+### How to run Application 
+
+* After Cloning , Open Terminal , for Both Frontend and backend folder install dependencies seperately  <code>npm install </code>  
+* once Packages Installed , run  <code>npm run dev </code>  for frontend and  run  <code>npm start </code> for backend folder ,
+    Frontend will be hosted in  http://localhost:3000/ and Backend will be live in  http://localhost:8080/
+ 
 ### Entities
 
      The basic entities that govern our application are:  
