@@ -1,3 +1,12 @@
+/**
+ * Ticket Schema
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module schema/ticket
+ * @requires constants
+ */
+
 // marking 'tags' and 'responder_id' as not required.
 
 import constants from '../constants.js';

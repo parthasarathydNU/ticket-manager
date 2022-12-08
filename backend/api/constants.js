@@ -1,3 +1,11 @@
+/**
+ * Constants for the application
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module constants
+ */
+
 export default {
   status: ['Open', 'In Progress', 'Resolved', 'Closed'],
   priority: ['Low', 'Medium', 'High', "Urgent"],

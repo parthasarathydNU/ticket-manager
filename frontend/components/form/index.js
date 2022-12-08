@@ -1,3 +1,20 @@
+/**
+ * Form component for the ticket creation page.
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module components/form
+ * @requires react
+ * @requires react-redux
+ * @requires @material-ui/core
+ * @requires @mui/material
+ * @requires next
+ * @requires next/router
+ * @requires components/text-field
+ * @requires components/autocomplete-field
+ * @requires store/slice/appSlice
+ */
+
 import { Container, Divider, Typography, Button, Box } from '@mui/material';
 import Link from 'next/link';
 import { useRouter } from 'next/router';

@@ -1,3 +1,14 @@
+/**
+ * Chart component
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module components/chart
+ * @requires react
+ * @requires react-chartjs-2
+ * @requires chart.js
+ */
+
 import React from 'react';
 import {
   Chart as ChartJS,

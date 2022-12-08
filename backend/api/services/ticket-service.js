@@ -1,8 +1,17 @@
+/**
+ * Ticket service
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module services/ticket-service
+ * @requires models/Ticket
+ */
+
 import Ticket from '../models/Ticket.js';
 
 /**
- * Get all todos
- * @returns all the ticket resource in the 'todos' colection
+ * Get all tickets
+ * @returns all the ticket resource in the 'tickets' colection
  */
 export const getAll = () => Ticket.find({});
 
