@@ -1,3 +1,13 @@
+/**
+ * Ticket model
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module models/Ticket
+ * @requires mongoose
+ * @requires schema/ticket
+ */
+
 import mongoose from 'mongoose';
 
 import ticketSchema from '../schema/ticket.js';

@@ -1,3 +1,12 @@
+/**
+ * Ticket service
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module services/ticket-service
+ * @requires models/Ticket
+ */
+
 import Ticket from '../models/Ticket.js';
 
 /**

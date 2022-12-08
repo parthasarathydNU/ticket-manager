@@ -1,3 +1,13 @@
+/**
+ * Wrapper for Autocomplete component
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module components/form/autocomplete-field
+ * @requires @mui/material
+ */
+
+
 import { Autocomplete } from '@mui/material';
 
 export default function HailAutocompleteField(props) {

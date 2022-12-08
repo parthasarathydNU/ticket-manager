@@ -1,3 +1,14 @@
+/**
+ * Ticket controller
+ * Author: Aravind Dasarathy
+ * Date: 08/12/2022
+ *
+ * @module controllers/ticket-controller
+ * @requires services/ticket-service
+ * @requires constants
+ * @requires express
+ */
+
 import * as ticketService from '../services/ticket-service.js';
 import constants from '../constants.js';
 
