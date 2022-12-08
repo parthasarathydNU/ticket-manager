@@ -33,7 +33,7 @@ function ResponsiveAppBarComponent() {
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
   const shouldShow = () => {
-    return currentView !== "Login" && currentView !== "Sign Up";
+    return currentView !== "Login" && currentView !== "Sign Up" && currentView !=="Forgotpassword";
   }
   const dispatch = useDispatch();
   const currentView = useSelector((state) => { return state.app.currentView });
