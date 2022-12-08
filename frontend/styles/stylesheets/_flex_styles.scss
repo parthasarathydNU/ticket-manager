@@ -1,0 +1,59 @@
+/* Classes for Alignment */
+
+/* ELEMENTS ALIGNMENT, FLEX */
+
+.flex{
+    display: flex;
+}
+
+.justify-center-elements{
+    justify-content: center;
+}
+
+.justify-space-between-elements{
+    justify-content: space-between;
+}
+
+.justify-space-around-elements{
+    justify-content: space-around;
+}
+
+.justify-space-evenly-elements{
+    justify-content: space-evenly;
+}
+
+.align-center-elements{
+    align-items: center;
+}
+
+.align-end-elements{
+    align-items: flex-end;
+}
+.align-start-elements{
+    align-items: flex-start;
+}
+
+.vertical-stack{
+    flex-direction: column;
+
+}
+
+.flex-col{
+    @extend .flex;
+    @extend .vertical-stack;
+}
+
+/* TEXT ALIGNMENT */
+.center-align{
+    text-align: center;
+}
+.left-align{
+    text-align: left;
+}
+.right-align{
+    text-align: right;
+}
+
+.vertical-center-text{
+    vertical-align: middle;
+}

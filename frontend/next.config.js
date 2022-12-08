@@ -7,7 +7,15 @@ const nextConfig = {
   swcMinify: true,
   sassOptions:{
     includePaths: [path.join(__dirname, 'styles')],
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/:any*',
+        destination: '/',
+      },
+    ];
+  },
 }
 
 module.exports = nextConfig

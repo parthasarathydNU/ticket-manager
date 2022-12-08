@@ -1,0 +1,41 @@
+.FilterMain {
+
+    height: calc(100% - 20%);
+    // border: 0.5px solid #12344d;
+    margin: 10px;
+    // outline: 1.5px solid #12344d;
+    // box-shadow: inset 0 0 0 4px #fff;
+    position: relative;
+
+    .FilterItem {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding-top: 5px;
+        margin: 10px;
+    }
+
+    .FilterDiv {
+        text-align: center;
+        background: #12344d;
+        margin: 5px;
+        padding: 8px;
+        color: white;
+        box-shadow: rgb(0 0 0 / 16%) 0px 3px 6px, rgb(0 0 0 / 23%) 0px 3px 6px;
+    }
+
+    .FilterButton{
+    bottom: 0;
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    }
+
+    .FilterItems{
+        position: relative;
+    }
+
+}

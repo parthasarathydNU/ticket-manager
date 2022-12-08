@@ -1,0 +1,18 @@
+.wrapper{
+    display: flex;
+    flex-direction: row;
+    padding: 1rem 0;
+    overflow-x: auto;
+    // width: 90vw;
+    // margin: 0 auto;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+// @media  (min-width: 900px) {
+//     .wrapper{
+//         flex-direction: row !important;
+//         justify-content: space-around;
+//     }
+// }

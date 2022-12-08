@@ -1,0 +1,26 @@
+/* HEIGHT in rem */
+/* width in % from 1 to 30rem, step by 1 rem*/
+/* start inclusive, end exclusive*/
+@for $i from 1 to 31 {
+    .h-rem-#{calc($i)}{
+        height: calc($i*1rem);
+    }
+}
+
+/* Height in % */
+/* Height in % from 10% to 100%, step by 5*/
+/* start inclusive, end exclusive*/
+@for $i from 1 to 21 {
+    .h-perc-#{calc($i*5)}{
+        height: calc($i*5%);
+    }
+}
+
+/* Height in PIXELS */
+/* Height in px from 10 to 200 px, step by 10*/
+/* start inclusive, end exclusive*/
+@for $i from 1 to 21 {
+    .h-px-#{calc($i*10)}{
+        height: calc($i*10px);
+    }
+}

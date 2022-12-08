@@ -1,0 +1,223 @@
+.wrapper{
+    width: 100%;
+    height: calc(100% - 50px);
+
+
+}
+
+.ticketInfoLayout{
+    display: flex;
+    height: 75vh;
+
+
+}
+
+.mainPanel{
+    width: 80%;
+    padding: 1rem;
+    background-color: white;
+    height: 100%;
+
+    .header {
+        padding: 12px 16px;
+        border-bottom: 1px solid #ebeff3;
+        display: flex;
+        align-items: center;
+    }
+
+    .ticketDetailsHeader{
+        display: flex;
+        padding: 1rem 0;
+        margin: 0.5rem 1rem;
+
+        .ticketSubjectInfo{
+            margin-left: 1rem;
+            font-size: 1rem;
+
+            .ticketSubjectHeading{
+                font-weight: bold;
+            }
+        }
+    }
+
+    .ticketDetailsWrapper{
+
+        margin-left: 1rem;
+
+        .ticketDetailsItemHeader{
+            display: flex;
+
+            .ticketDetailsAvatar{
+                img{
+                    border-radius: 0.4rem;
+                }
+            }
+
+            .ticketDetailsEmail{
+                margin-left: 1rem;
+                font-size: 0.8rem;
+
+                .createdTime{
+                    font-style: italic;
+                }
+            }
+        }
+
+        .ticketDetailsItemContent{
+            display: flex;
+            padding: 1rem 0;
+            margin: 0.5rem 0;
+            font-size: 0.9rem;
+
+            .textContentWrapper{
+                margin-left: 1rem;
+            }
+        }
+    }
+}
+
+.informationUpdatePanel{
+    padding: 0 1rem;
+    background-color: white;
+    height: 100%;
+    box-shadow: inset 10px 0 10px -8px #ebeff3;
+    overflow-y: scroll;
+    position: relative;
+
+    .statusCardWrapper{
+
+        border-bottom: 1px #ebeff3 solid;
+        padding: 22px 0;
+        margin: 0 24px 0 0;
+
+        .statusTitle{
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        .resolutionWrapper{
+            padding-top: 1rem;
+            .resolutionTitle{
+                position: relative;
+                font-size: 12px;
+                font-weight: 500;
+                text-transform: uppercase;
+                margin-right: 6px;
+                padding-left: 16px;
+                margin-bottom: 4px;
+
+                &::before{
+                    background-color: #e43538;
+                    content: "";
+                    position: absolute;
+                    width: 8px;
+                    height: 8px;
+                    border-radius: 50%;
+                    top: 4px;
+                    left: 2px;
+                    box-shadow: 0 0 0 1px #fff;
+                    z-index: 2;
+                }
+                &::after {
+                    background-color: #ff5959;
+                    content: "";
+                    position: absolute;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 50%;
+                    left: 0;
+                    top: 2px;
+                }
+            }
+
+            .resolutionDate{
+                font-size: 14px;
+            }
+        }
+    }
+
+    .stickyHeader{
+        width: 100%;
+        font-size: 12px;
+        position: sticky;
+        top: 0;
+        background-color: #fff;
+        z-index: 2;
+
+        &::before{
+            content: "";
+            position: sticky;
+            top: 34px;
+            display: block;
+            box-shadow: 0 2px 4px rgba(18,52,77,.08);
+            z-index: 2;
+            height: 16px;
+
+
+        }
+        .properties{
+            position: sticky;
+            padding: 14px 0;
+            z-index: 5;
+            background-color: #fff;
+            margin-top: -16px;
+            box-shadow: inset 10px÷ 0 10px -8px #ebeff3;
+            text-transform: uppercase;
+            letter-spacing: .2px;
+        }
+    }
+
+    .optionsTitle{
+        padding-bottom: 4px;
+        font-weight: bold;
+        font-size: 12px;
+    }
+    .tags {
+        margin-bottom: 16px;
+        .tagsContainer{
+            display: block;
+            width: 20vw;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: 'nowrap';
+
+            span{
+                margin-right: 4px;
+            }
+        }
+    }
+
+    .updateButtonContainer{
+        background-color: #fff;
+        height: 60px;
+        padding: 15px 0;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        .updateButton{
+            position: relative;
+            padding: 5px 15px 6px;
+            z-index: 1;
+            bottom: 0;
+            left: 0;
+            letter-spacing: .3px;
+            font-weight: 500;
+            background-color: #264966;
+            border: 1px solid #12344d;
+            background-image: linear-gradient(to bottom,#264966,#12344d);
+            color: white;
+            border-radius: 4px;
+            width: 100%;
+        }
+    }
+}
+
+.chip_red{
+    padding: 0.3rem 1rem;
+    border-radius: 4px;
+    border: 1px solid #C82024;
+    background: #FFECF0;
+    color: #C82024;
+    font-size: 12px;
+}
+

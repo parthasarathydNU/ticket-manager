@@ -1,0 +1,19 @@
+{
+  "name": "hailmary-backend",
+  "version": "1.0.0",
+  "main": "server.js",
+  "author": "Aravind Dasarathy",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^6.7.2"
+  },
+  "type": "module"
+}

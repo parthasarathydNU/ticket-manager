@@ -1,0 +1,38 @@
+.signUpContainer{
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    max-width: 1000px;
+
+}
+
+
+.mainContainer {
+    display: flex;
+    overflow: auto;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    padding: 1.5rem 2rem;
+    width: 50%;
+    align-items: center;
+
+    .formContainer {
+        justify-self: center;
+        width: 100%;
+        .h1Container {
+            color: #264966;
+            font-size: 2rem;
+        }
+    
+        .anchorLogin {
+            color: #2C5CC5;
+            text-decoration: none;
+        }
+
+    }  
+
+    input{
+        width: 100% !important;
+    }
+}
+
