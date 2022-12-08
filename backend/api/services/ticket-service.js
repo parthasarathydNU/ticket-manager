@@ -10,8 +10,8 @@
 import Ticket from '../models/Ticket.js';
 
 /**
- * Get all todos
- * @returns all the ticket resource in the 'todos' colection
+ * Get all tickets
+ * @returns all the ticket resource in the 'tickets' colection
  */
 export const getAll = () => Ticket.find({});
 
