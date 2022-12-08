@@ -1,3 +1,16 @@
+/**
+ * File Name: components/reusable
+ * Author: Dhruv Parthasarathy
+ * File Created:
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains the reusable tags component
+ * Given a list of tags, this component will render them 
+ * but it is not possible to add new tags through this component
+ * 
+ */
+
 import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 

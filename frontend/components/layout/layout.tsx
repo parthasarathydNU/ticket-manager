@@ -1,3 +1,14 @@
+/**
+ * File Name: components/layout/layout.tsx
+ * Author: Dhruv Parthasarathy
+ * File Created:
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This layout componet is used to provide the transition animation between the different pages on the app
+ * This contains the motion.main component from the framer/motion library
+ */
+
 import React, { ReactNode } from 'react'
 import { motion } from 'framer-motion'
 

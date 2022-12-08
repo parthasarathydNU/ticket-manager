@@ -1,44 +1,66 @@
+/**
+ * File Name: components/ticketManagement/Ticket/Ticket.tsx
+ * Author: Dhruv Parthasarathy
+ * File Created:
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains the individual ticket component
+ * This component does the following:
+ * 
+ * Display the information of the selected ticket
+ * Allows user to edit the ticket details and submit an update request
+ * 
+ * This accesses state data from the redux store
+ */
+
 import { Breadcrumbs, Button, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
 import Link from "next/link";
 import { RootState, AppDispatch } from '../../../store'
 import ticketManagementStyles from '../_ticketManagement.module.scss'
 import styles from './_ticket.module.scss'
-import { fetchTicketDataAsync, toggleUpdateTicketDialogue,  unselectTicket, updateTicketDataAsync } from "../../../store/slice/ticketManagementSlice";
+import { fetchTicketDataAsync, toggleUpdateTicketDialogue, unselectTicket, updateTicketDataAsync } from "../../../store/slice/ticketManagementSlice";
 import RandomPic from './randomProfilePic.jpg'
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import Tags from "../../reusable/Tags";
 import SelectLabels from "../../reusable/SimpleSelect";
 import TextEditor from "../../reusable/TextEditor";
-import { TicketData, resolutionTypes, statusOptions, priorities, emptyTicket  } from "../../../service/models/Ticket"
+import { TicketData, resolutionTypes, statusOptions, priorities, emptyTicket } from "../../../service/models/Ticket"
 import AlertDialogSlide from "../../reusable/AlertDialogSlide";
-import {setCurrentView} from '../../../store/slice/appSlice';
+import { setCurrentView } from '../../../store/slice/appSlice';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 function Ticket() {
+
+    // TYPES Required:
+    type user = {
+        name: string, id: string
+    }
 
     // SELECTORS
     const selectedTicket = useSelector((state: RootState) => {
         return state.ticketManagement.selectedTicket
     });
 
-    let ticketData : any = useSelector((state: RootState): TicketData => {
-        return state.ticketManagement.rows.filter((ticket:TicketData) => ticket.id === selectedTicket)[0] ;
+    let ticketData: any = useSelector((state: RootState): TicketData => {
+        return state.ticketManagement.rows.filter((ticket: TicketData) => ticket.id === selectedTicket)[0];
     });
 
-    let alertDialogueOpen = useSelector((state:RootState) => {
+    let alertDialogueOpen = useSelector((state: RootState) => {
         return state.ticketManagement.updateTicketAlertOpen;
     })
 
-    type user = {
-        name:string, id:string
-    }
-    let users:Array<user> = useSelector((state:RootState) => {
+    let users: Array<user> = useSelector((state: RootState) => {
         return state.ticketManagement.dropDownValues.agent;
     })
 
-    let tempData:any = emptyTicket;
+    // Local objects
+    let tempData: any = emptyTicket;
+    const dispatch = useDispatch<AppDispatch>();
+
+    // State variables
     const [compTicketData, setCompTicketData] = useState(tempData);
 
 
@@ -49,7 +71,7 @@ function Ticket() {
     useEffect(() => {
         // console.log("Use effect called");
         // if( !ticketData || (Object.keys(ticketData).length == 0))
-            dispatch(fetchTicketDataAsync( {id:selectedTicket} ));
+        dispatch(fetchTicketDataAsync({ id: selectedTicket }));
     }, [selectedTicket])
 
     useEffect(() => {
@@ -61,9 +83,18 @@ function Ticket() {
     }, [])
 
 
-    const dispatch = useDispatch<AppDispatch>();
+
 
     // Functions
+
+    /**
+     * This function takes in a date string and returns either the
+     * firstResponse date or the resolution date depending on the value of
+     * the type field
+     * @param date string
+     * @param type string
+     * @returns 
+     */
     const getResolutionDate = (date: string, type: string) => {
 
         const numWeeks = 1;
@@ -80,39 +111,53 @@ function Ticket() {
 
     }
 
+
+    /**
+     * This function is used when a user updates a ticket
+     * We get the new data to be stored and the key that has to be updated
+     * and we use this single function to update the key of the data based on the key param
+     * @param data string | Array<string>
+     * @param key string
+     */
     const updateTicketKey = (data: string | Array<string>, key: string) => {
         // dispatch(setTicketKey({ key: key, value: data, id: selectedTicket }));
         // console.log(compTicketData);
-        let temp:any = Object.assign({}, compTicketData);
+        let temp: any = Object.assign({}, compTicketData);
         temp[key] = data;
         setCompTicketData(temp);
     }
 
-    const getAlertOutput = (okayToUpdateTicket:boolean) => {
-        console.log("Update ? ", okayToUpdateTicket);
+    /**
+     * This function is used to get the update toggle modal
+     * when the user tries to update a ticket
+     * @param okayToUpdateTicket boolean
+     */
+    const getAlertOutput = (okayToUpdateTicket: boolean) => {
+        // console.log("Update ? ", okayToUpdateTicket);
         dispatch(toggleUpdateTicketDialogue())
-        if(okayToUpdateTicket){
+        if (okayToUpdateTicket) {
             const firstName = compTicketData.agent.split(" ")[0];
             const lastName = compTicketData.agent.split(" ")[1];
-            const agentId = users.find(user => user.name === `${firstName} ${lastName}`)?.id; 
+            const agentId = users.find(user => user.name === `${firstName} ${lastName}`)?.id;
             let tempData = Object.assign({}, compTicketData);
             tempData.responder_id = agentId;
             // console.log(agentId);
-            dispatch(updateTicketDataAsync({ticketData:tempData}));
+            dispatch(updateTicketDataAsync({ ticketData: tempData }));
         }
 
     }
 
-    
+
 
 
     return (
 
         <div className={styles.wrapper}>
+            {/* HEADER WITH BREADCRUMBS FOR NAVIGATING BACK TO ALL TICKETS */}
             <div className={ticketManagementStyles.TicketHeader}>
 
-                <Breadcrumbs  separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
-                    <Link color="gray"  href={""} onClick={() => dispatch(unselectTicket())} >
+                <Breadcrumbs separator={<NavigateNextIcon fontSize="small" />} aria-label="breadcrumb">
+                    <Link color="gray" href={""} onClick={() => dispatch(unselectTicket())} >
                         Tickets
                     </Link>
 
@@ -123,13 +168,17 @@ function Ticket() {
             </div>
             {/*  LAYOUT - Flex - Row */}
             <section className={styles.ticketInfoLayout}>
+
                 {ticketData
-                    ?                     (
+                    ? (
                         <>
                             <section className={styles.mainPanel}>
+
+                                {/* TICKET STATUS HEADER */}
                                 <header className={styles.header}>
                                     <span className={styles.chip_red}>{ticketData.status}</span>
                                 </header>
+
                                 {/* Ticket Details header */}
                                 <div className={styles.ticketDetailsHeader}>
 
@@ -169,7 +218,8 @@ function Ticket() {
 
 
                             </section>
-                            {/* INFO UPDATE PANEL HERE */}
+
+                            {/* INFORMATION UPDATE RIGHT SIDE PANEL HERE */}
                             <section className={styles.informationUpdatePanel}>
 
                                 {/* STATUS AND RESOLUTION TIME */}
@@ -201,9 +251,6 @@ function Ticket() {
                                 <div className={styles.tags}>
                                     <span className={styles.optionsTitle}>Tags ({ticketData.tags.length})</span>
                                     <div className={styles.tagsContainer} title={ticketData.tags.join(", ")}>
-                                        {/* {ticketData.tags.map(tag => {
-                                return <span>{tag}</span>
-                            })} */}
                                         <Tags tags={ticketData.tags} />
                                     </div>
                                 </div>
@@ -223,26 +270,28 @@ function Ticket() {
                                 {/* AGENT */}
                                 <div className={styles.tags}>
                                     <span className={styles.optionsTitle}>Agent</span>
-                                    <SelectLabels selectChanged={(d: string) => updateTicketKey(d, 'agent')} selected={ticketData.agent}  options={ users.map((user:user) => user.name)} />
-                                </div>                                
+                                    <SelectLabels selectChanged={(d: string) => updateTicketKey(d, 'agent')} selected={ticketData.agent} options={users.map((user: user) => user.name)} />
+                                </div>
 
                                 {/* UPDATE BUTTON */}
-                                <div  className={styles.updateButtonContainer}>
+                                <div className={styles.updateButtonContainer}>
                                     <Button onClick={() => dispatch(toggleUpdateTicketDialogue())} className={styles.updateButton}>Update</Button>
                                 </div>
 
                             </section>
-                            <AlertDialogSlide description={""} title={`Are you sure you want to update task ${ticketData.subject}?`} open={alertDialogueOpen} getAlertOutput={getAlertOutput}/>
+
+                            {/* THIS DIALOG SLIDES IN FORM BOTTOM WHENEVER A USER CLICKS THE UPDATE BUTTON */}
+                            <AlertDialogSlide description={""} title={`Are you sure you want to update task ${ticketData.subject}?`} open={alertDialogueOpen} getAlertOutput={getAlertOutput} />
                         </>
                     )
-                    :  null
+                    : null
 
 
                 }
 
 
             </section>
-            
+
         </div>
 
     )

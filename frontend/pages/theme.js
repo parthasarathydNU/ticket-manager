@@ -1,3 +1,12 @@
+/**
+ * File Name: theme.js
+ * Author: Dhruv Parthasarathy
+ * File Created: Dec, 8th, Thu
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains the base theme of the application
+ */
 // import {Roboto} from '@next/font/google'
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';

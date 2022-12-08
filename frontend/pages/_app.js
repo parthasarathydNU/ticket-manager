@@ -1,3 +1,17 @@
+/**
+ * File Name: _app.js
+ * Author: Dhruv Parthasarathy
+ * File Created: First commit
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file acts as the NextJS wrapper for the application.
+ * The various components that are present under the different pages are rendered in place of the 
+ * <Component /> tag present in this file
+ * 
+ * Static content that needs to stay across all pages should reside outside the <Component /> tag
+ * in this file
+ */
 import * as React from 'react';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';

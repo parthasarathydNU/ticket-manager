@@ -1,3 +1,12 @@
+/**
+ * File Name: FocusCard.tsx
+ * Author: Dhruv Parthasarathy
+ * File Created: 
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains the code for showing the cards on top of the dashbaord
+ */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';

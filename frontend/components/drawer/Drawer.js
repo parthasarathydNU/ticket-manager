@@ -1,7 +1,16 @@
+/**
+ * File Name: components/drawer/Drawer.js
+ * Author: Dhruv Parthasarathy
+ * File Created: 
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains the drawer component that acts as the navigation between the Dashboard and the 
+ * Ticket Management Screen
+ */
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
-import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
 import ListItem from '@mui/material/ListItem';
@@ -20,12 +29,6 @@ import { returnUrl } from '../../utils/routingUtils';
 
 export default function TemporaryDrawer() {
 
-  //   const [state, setState] = React.useState({
-  //     top: false,
-  //     left: false,
-  //     bottom: false,
-  //     right: false,
-  //   });
 
   const leftDrawerState = useSelector(state => state.app.leftDrawerOpen)
   const dispatch = useDispatch()
@@ -46,45 +49,33 @@ export default function TemporaryDrawer() {
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
-      
+
     >
       <List key={anchor}>
         {['Dashboard', 'Ticket Management'].map((text, index) => (
-          <Link  scroll={false} key={index} href={`/${returnUrl(text)}`} 
-          
-          >
-          <ListItem key={text} disablePadding 
-          sx={{
-            color : 'white',
-            textDecoration:'none'
-          }}
-          >
+          <Link scroll={false} key={index} href={`/${returnUrl(text)}`}
 
-            <ListItemButton onClick={() => handleCurrentViewChange(text)}>
+          >
+            <ListItem key={text} disablePadding
+              sx={{
+                color: 'white',
+                textDecoration: 'none'
+              }}
+            >
 
-              <ListItemIcon sx={{color : 'white'}}>
-                {index % 2 === 0 ? <InboxIcon  /> : <MailIcon />}
-              </ListItemIcon>
-              <ListItemText   sx={{textDecoration:'none'}} primary={text} />
-            </ListItemButton>
-          </ListItem>
+              <ListItemButton onClick={() => handleCurrentViewChange(text)}>
+
+                <ListItemIcon sx={{ color: 'white' }}>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText sx={{ textDecoration: 'none' }} primary={text} />
+              </ListItemButton>
+            </ListItem>
           </Link>
         ))}
       </List>
       <Divider />
-      {/* <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-          <ListItem key={text} disablePadding>
-            <ListItemButton>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
-              <Link to={`/${text}`}><ListItemText primary={text} /></Link>
-              
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
+
     </Box>
   );
 
@@ -103,12 +94,6 @@ export default function TemporaryDrawer() {
     >
       {list("left")}
     </Drawer>
-    // <div>
-    //   {['left', 'right', 'top', 'bottom'].map((anchor) => (
-    //     <React.Fragment key={anchor}>
-    //       <Button onClick={toggleDrawer(anchor, true)}>{anchor}</Button>
-    //     </React.Fragment>
-    //   ))}
-    // </div>
+
   );
 }

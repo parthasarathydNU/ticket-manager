@@ -36,6 +36,17 @@ const Transition = React.forwardRef(function Transition(
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
+/**
+ * File Name: components/reusable/AlertDialogSlide.tsx
+ * Author: Dhruv Parthasarathy
+ * File Created:
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains reusable Alert component
+ * THis can be triggered whenever we want the user to take a decision between a yes and a no
+ */
+
 export default function AlertDialogSlide({open,getAlertOutput, title, description}:{description: String, title:String, open:boolean, getAlertOutput:Function}) {
   // const [open, setOpen] = React.useState(false);
 

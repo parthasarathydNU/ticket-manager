@@ -1,3 +1,17 @@
+/**
+ * File Name: components/reusable/SimpleSelect.tsx
+ * Author: Dhruv Parthasarathy
+ * File Created:
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains Simple Select component, 
+ * this is used to provide a user with drop down with dynamic listss as options
+ * 
+ * When an option is changed that is returned back to the parent throuhg the
+ * selecChanged class
+ */
+
 import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';

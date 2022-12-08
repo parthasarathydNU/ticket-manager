@@ -1,3 +1,12 @@
+/**
+ * File Name: components/dashboard/Dashboard.tsx
+ * Author: Dhruv Parthasarathy
+ * File Created: 
+ * Last Modified: Dec, 8th, Thu
+ * 
+ * About: 
+ * This file contains code for the dashboard
+ */
 import CardsSection from "./cardsSection/Cards";
 import styles from "./_dashboard.module.scss";
 import {useDispatch} from 'react-redux';
